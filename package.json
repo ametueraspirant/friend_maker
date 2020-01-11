@@ -1,0 +1,19 @@
+{
+  "name": "class_friend_maker",
+  "version": "1.0.0",
+  "description": "makin friends like brewin a stew",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ametueraspirant/friend_maker.git"
+  },
+  "author": "Amet DeCrypt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ametueraspirant/friend_maker/issues"
+  },
+  "homepage": "https://github.com/ametueraspirant/friend_maker#readme"
+}
