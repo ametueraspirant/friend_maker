@@ -105,39 +105,64 @@
 		<input type = "radio" name = "q10" class = "q10" value = "5">5<br><br>
 		<input type = "submit" id = "saveanswers" value = "Find a friend" class = "bewtton">
 	</form>
-	<div id = "resultstest"></div>
 </div>
+<div id = "resultstest">
 
+</div>
 <script type = "text/javascript">
-let human_results =[];
+let human_results = [];
 let le_bot = {};
-let total_diff = 0;
+let total_diff = 100;
+let new_diff = 0;
+let results_true = false;
 
 $("#saveanswers").on("click", function(event)
 {
 	event.preventDefault();
-	for(let quest = 1; quest < 11; quest++)
+	if(!results_true)
 	{
-		human_results.push($(".q" + quest + ":checked").val());
-	}
-	$.ajax({ url: "/api/friends", method: "GET" })
-	.then(function(friend_table)
-	{
-		total_diff = 0;
-		for(let bot = 0; bot < friend_table.length; bot++)
+		for(let quest = 1; quest < 11; quest++)
 		{
-			for(let man = 0; man < friend_table[bot].scores.length; man++)
-			{
-				
-			}
+			human_results.push($(".q" + quest + ":checked").val());
 		}
-		le_bot = friend_table
-		$("#resultstest").append(
-
-		);
-	});
+		$.ajax({ url: "/api/friends", method: "GET" })
+		.then(function(friend_table)
+		{
+			for(let bot = 0; bot < friend_table.length; bot++)
+			{
+				let friend_scores = friend_table[bot].scores;
+				for(let man = 0; man < friend_scores.length; man++)
+				{
+					new_diff += Math.abs(friend_scores[man] - human_results[man]);	
+				}
+				if(new_diff <= total_diff)
+				{
+					total_diff = new_diff;
+					le_bot = friend_table[bot]
+				}
+				new_diff = 0;
+			}
+			console.log(le_bot);
+			console.log(le_bot.photo);
+			$("#resultstest").addClass("header");
+			$("#resultstest").append(
+				"<h1 class = 'big-big'>Your answers matched most with:</h1>" +
+				"<h2>" + le_bot.name + "</h2>" +
+				"<img src = '" + le_bot.photo + "' alt = '" + le_bot.name + "'><br>" +
+				"<button class = 'bewtton' id = 'resetbutton'>Reset and try again</button>"
+			);
+			$("#resetbutton").on("click", function(event)
+			{
+				event.preventDefault();
+				location.reload();
+			});
+			$('html,body').animate({
+    	    scrollTop: $("#resultstest").offset().top
+    		}, 'slow');
+		});
+	results_true = true;
+	}
 });
-
 </script>
 </body>
 </html>
