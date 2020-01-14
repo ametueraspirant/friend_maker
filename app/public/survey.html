@@ -3,9 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <title>Now tell us everything about yourself.</title>
-
+<style>
+.header
+{
+	width: 960px;
+	margin: 0 auto 20px;
+	padding: 20px 0;
+	background-color: lightgray;
+	height: 100%;
+	border: gray solid 4px;
+	border-radius: 4px;
+	text-align: center;
+}
+.big-big
+{
+	font-size: 60px;
+	line-height: 50px;
+}
+.bewtton
+{
+	margin: 0 auto;
+	line-height: 30px;
+	font-size: 30px;
+	padding: 15px;
+	border-radius: 5px;
+	margin-bottom: 30px;
+	background-color: darkgray;
+}
+</style>
+<script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <body>
+<div class = "header">
+	<h1 class = "big-big">You can go home when you answer all the questions and not before, bobby.</h1>
+</div>
+<div class = "header">
+	<h2>
+		<p>Choose your answer from 1 (strongly disagree) to 5 (strongly agree).</p>
+		<p>Or pick something in between, I'm not your mom.</p>
+	</h2>
+	<form method = "POST">
+		I like cows.<br>
+		<input type = "radio" name = "q1" class = "q1" value = "1">1
+		<input type = "radio" name = "q1" class = "q1" value = "2">2
+		<input type = "radio" name = "q1" class = "q1" value = "3" checked>3
+		<input type = "radio" name = "q1" class = "q1" value = "4">4
+		<input type = "radio" name = "q1" class = "q1" value = "5">5<br><br>
+		Clefairy is the best pokemon.<br>
+		<input type = "radio" name = "q2" class = "q2" value = "1">1
+		<input type = "radio" name = "q2" class = "q2" value = "2">2
+		<input type = "radio" name = "q2" class = "q2" value = "3" checked>3
+		<input type = "radio" name = "q2" class = "q2" value = "4">4
+		<input type = "radio" name = "q2" class = "q2" value = "5">5<br><br>
+		The capital of the Amazon is Niagra Falls.<br>
+		<input type = "radio" name = "q3" class = "q3" value = "1">1
+		<input type = "radio" name = "q3" class = "q3" value = "2">2
+		<input type = "radio" name = "q3" class = "q3" value = "3" checked>3
+		<input type = "radio" name = "q3" class = "q3" value = "4">4
+		<input type = "radio" name = "q3" class = "q3" value = "5">5<br><br>
+		I am the goodest boi.<br>
+		<input type = "radio" name = "q4" class = "q4" value = "1">1
+		<input type = "radio" name = "q4" class = "q4" value = "2">2
+		<input type = "radio" name = "q4" class = "q4" value = "3" checked>3
+		<input type = "radio" name = "q4" class = "q4" value = "4">4
+		<input type = "radio" name = "q4" class = "q4" value = "5">5<br><br>
+		Plants will one day rule the world.<br>
+		<input type = "radio" name = "q5" class = "q5" value = "1">1
+		<input type = "radio" name = "q5" class = "q5" value = "2">2
+		<input type = "radio" name = "q5" class = "q5" value = "3" checked>3
+		<input type = "radio" name = "q5" class = "q5" value = "4">4
+		<input type = "radio" name = "q5" class = "q5" value = "5">5<br><br>
+		I didn't eat the last cookie.<br>
+		<input type = "radio" name = "q6" class = "q6" value = "1">1
+		<input type = "radio" name = "q6" class = "q6" value = "2">2
+		<input type = "radio" name = "q6" class = "q6" value = "3" checked>3
+		<input type = "radio" name = "q6" class = "q6" value = "4">4
+		<input type = "radio" name = "q6" class = "q6" value = "5">5<br><br>
+		You look great today.<br>
+		<input type = "radio" name = "q7" class = "q7" value = "1">1
+		<input type = "radio" name = "q7" class = "q7" value = "2">2
+		<input type = "radio" name = "q7" class = "q7" value = "3" checked>3
+		<input type = "radio" name = "q7" class = "q7" value = "4">4
+		<input type = "radio" name = "q7" class = "q7" value = "5">5<br><br>
+		These are not the droids you are looking for.<br>
+		<input type = "radio" name = "q8" class = "q8" value = "1">1
+		<input type = "radio" name = "q8" class = "q8" value = "2">2
+		<input type = "radio" name = "q8" class = "q8" value = "3" checked>3
+		<input type = "radio" name = "q8" class = "q8" value = "4">4
+		<input type = "radio" name = "q8" class = "q8" value = "5">5<br><br>
+		If you hit a roadblock, hit it hard to gain altitude.<br>
+		<input type = "radio" name = "q9" class = "q9" value = "1">1
+		<input type = "radio" name = "q9" class = "q9" value = "2">2
+		<input type = "radio" name = "q9" class = "q9" value = "3" checked>3
+		<input type = "radio" name = "q9" class = "q9" value = "4">4
+		<input type = "radio" name = "q9" class = "q9" value = "5">5<br><br>
+		Everyone's bones are wet.<br>
+		<input type = "radio" name = "q10" class = "q10" value = "1">1
+		<input type = "radio" name = "q10" class = "q10" value = "2">2
+		<input type = "radio" name = "q10" class = "q10" value = "3" checked>3
+		<input type = "radio" name = "q10" class = "q10" value = "4">4
+		<input type = "radio" name = "q10" class = "q10" value = "5">5<br><br>
+		<input type = "submit" id = "saveanswers" value = "Find a friend" class = "bewtton">
+	</form>
+	<div id = "resultstest"></div>
+</div>
 
+<script type = "text/javascript">
+let human_results =[];
+let le_bot = {};
+let total_diff = 0;
+
+$("#saveanswers").on("click", function(event)
+{
+	event.preventDefault();
+	for(let quest = 1; quest < 11; quest++)
+	{
+		human_results.push($(".q" + quest + ":checked").val());
+	}
+	$.ajax({ url: "/api/friends", method: "GET" })
+	.then(function(friend_table)
+	{
+		total_diff = 0;
+		for(let bot = 0; bot < friend_table.length; bot++)
+		{
+			for(let man = 0; man < friend_table[bot].scores.length; man++)
+			{
+				
+			}
+		}
+		le_bot = friend_table
+		$("#resultstest").append(
+
+		);
+	});
+});
+
+</script>
 </body>
 </html>
